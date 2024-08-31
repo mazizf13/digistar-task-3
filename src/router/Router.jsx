@@ -9,7 +9,7 @@ import Media from "../pages/Media";
 import Contact from "../pages/Contact";
 
 export default function Router() {
-  const isAuthenticated = true;
+  const isAuthenticated = localStorage.getItem("isLoggedIn") === "true";
 
   return (
     <BrowserRouter>

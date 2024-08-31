@@ -1,8 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "../components/header/NavBar";
-import { EyeOff } from "lucide-react";
+import { EyeOff, Eye } from "lucide-react";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (email === "padi@test.com" && password === "123456") {
+      localStorage.setItem("isLoggedIn", "true");
+      window.location.href = "https://padiumkm.id/";
+    } else {
+      alert("Email atau kata sandi salah!");
+    }
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <>
       <NavBar />
@@ -47,41 +65,54 @@ const Login = () => {
                 </div>
               </div>
               <div className="w-full">
-                <div className="w-full space-y-2 mb-4">
-                  <label className="block text-sm font-bold text-paletteText-primary text-left">
-                    Alamat Email
-                  </label>
-                  <input
-                    className="appearance-none border rounded w-full py-2 px-3 focus:outline-none false"
-                    id="username"
-                    type="text"
-                    placeholder="john.doe@gmail.com"
-                  />
-                </div>
-                <div className="w-full space-y-2 mb-6">
-                  <label className="block text-sm font-bold text-paletteText-primary text-left">
-                    Kata Sandi
-                  </label>
-                  <div className="relative">
+                <form onSubmit={handleLogin}>
+                  <div className="w-full space-y-2 mb-4">
+                    <label className="block text-sm font-bold text-paletteText-primary text-left">
+                      Alamat Email
+                    </label>
                     <input
                       className="appearance-none border rounded w-full py-2 px-3 focus:outline-none false"
-                      id="password"
-                      type="password"
-                      placeholder="Masukkan Kata Sandi"
+                      id="email"
+                      type="text"
+                      placeholder="padi@test.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
-                    <span className="absolute top-1/2 right-1 transform -translate-x-1/2 -translate-y-1/2">
-                      <EyeOff className="w-4 h-4" />
-                    </span>
                   </div>
-                </div>
-                <div className="w-full mb-6">
-                  <button
-                    className="w-full py-2 bg-[#009EA9] text-white rounded-lg"
-                    type="submit"
-                  >
-                    Login
-                  </button>
-                </div>
+                  <div className="w-full space-y-2 mb-6">
+                    <label className="block text-sm font-bold text-paletteText-primary text-left">
+                      Kata Sandi
+                    </label>
+                    <div className="relative">
+                      <input
+                        className="appearance-none border rounded w-full py-2 px-3 focus:outline-none false"
+                        id="password"
+                        type={showPassword ? "text" : "password"}
+                        placeholder="123456"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                      />
+                      <span
+                        onClick={togglePasswordVisibility}
+                        className="absolute cursor-pointer top-1/2 right-1 transform -translate-x-1/2 -translate-y-1/2"
+                      >
+                        {showPassword ? (
+                          <Eye className="w-4 h-4" />
+                        ) : (
+                          <EyeOff className="w-4 h-4" />
+                        )}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="w-full mb-6">
+                    <button
+                      className="w-full py-2 bg-[#009EA9] text-white rounded-lg"
+                      type="submit"
+                    >
+                      Login
+                    </button>
+                  </div>
+                </form>
                 <div className="text-center space-y-2">
                   <div>
                     <span className="font-light text-sm">
