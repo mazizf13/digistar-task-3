@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault();
     if (email === "padi@test.com" && password === "123456") {
       localStorage.setItem("isLoggedIn", "true");
-      window.location.href = "https://padiumkm.id/";
+      window.location.href = "/beranda";
     } else {
       alert("Email atau kata sandi salah!");
     }

@@ -75,7 +75,7 @@ const NavBar = () => {
             </span>
           </li>
           <div className="border-[1px] border-[#009EA9] rounded-lg px-3 py-2 text-[#009EA9] cursor-pointer">
-            <Link to="/login">Belanja di PaDi UMKM</Link>
+            <Link to="https://padiumkm.id">Belanja di PaDi UMKM</Link>
           </div>
         </ul>
       </div>
@@ -121,7 +121,7 @@ const NavBar = () => {
             </span>
           </li>
           <div className="border-[1px] border-[#009EA9] rounded-lg px-3 py-2 text-[#009EA9] cursor-pointer">
-            <Link to="/login">Belanja di PaDi UMKM</Link>
+            <Link to="https://padiumkm.id">Belanja di PaDi UMKM</Link>
           </div>
         </ul>
       </div>
