@@ -6,6 +6,7 @@ import Login from "../pages/Login";
 import AboutUs from "../pages/AboutUs";
 import Help from "../pages/Help";
 import Media from "../pages/Media";
+import Contact from "../pages/Contact";
 
 export default function Router() {
   const isAuthenticated = true;
@@ -51,6 +52,14 @@ export default function Router() {
           element={
             <PrivateRoute isAuthenticated={isAuthenticated}>
               <Media />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <PrivateRoute isAuthenticated={isAuthenticated}>
+              <Contact />
             </PrivateRoute>
           }
         />
