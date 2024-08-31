@@ -5,6 +5,7 @@ import Beranda from "../pages/Beranda";
 import Login from "../pages/Login";
 import AboutUs from "../pages/AboutUs";
 import Help from "../pages/Help";
+import Media from "../pages/Media";
 
 export default function Router() {
   const isAuthenticated = true;
@@ -42,6 +43,14 @@ export default function Router() {
           element={
             <PrivateRoute isAuthenticated={isAuthenticated}>
               <Help />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/media"
+          element={
+            <PrivateRoute isAuthenticated={isAuthenticated}>
+              <Media />
             </PrivateRoute>
           }
         />

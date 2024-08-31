@@ -94,3 +94,29 @@ export const help = {
     },
   ],
 };
+
+export const media = {
+  title: "Rekomendasi",
+  desc: "Rekomendasi produk sesuai kebutuhan pembeli",
+  articels: [
+    {
+      title: "Mengenal Jenis Tripod dan Masing-Masing Kelebihannya",
+      detail:
+        "Tripod adalah komponen penting dalam dunia fotografi untuk memudahkan Anda untuk meletakkan kamera agar tidak mudah goyang terlebih untuk jangka waktu yang panjang. Dibandingkan dengan memegangnya dengan tangan biasa menggunakan tripod menghasilkan foto yang lebih stabil jadi penting untuk dipertimbangkan.",
+      img: "https://info.padiumkm.id/_next/image?url=https%3A%2F%2Fsmb-padiumkm-images-public-prod.oss-ap-southeast-5.aliyuncs.com%2Finfo-padi%2Fuploads%2F2024%2F08%2Fc5d04fde-f7a7-417a-82c8-2e1533aae294.jpg&w=640&q=75",
+    },
+    {
+      title: "Mengenal Jenis Kamera dan Masing-Masing Kelebihannya",
+      detail:
+        "Kamera menjadi kebutuhan penting untuk menjepret gambar maupun merekam video dengan hasil yang mumpuni. Anda perlu tahu kalau kamera juga punya jenis yang beragam disesuaikan dengan kualitas dan juga kemampuannya dalam memberikan gambar yang bagus. Biar lebih mudah Anda bisa langsung cek semua penjelasan lengkapnya di bawah ini!",
+      img: "https://info.padiumkm.id/_next/image?url=https%3A%2F%2Fsmb-padiumkm-images-public-prod.oss-ap-southeast-5.aliyuncs.com%2Finfo-padi%2Fuploads%2F2024%2F08%2Fa4801356-2af2-4bfa-b3a8-99bb8d8aaa6c.jpg&w=2048&q=75",
+    },
+    {
+      title:
+        "3 Rekomendasi Handphone yang Bisa Anda Beli dengan Spesifikasi Mumpuni",
+      detail:
+        "Handphone menjadi kebutuhan penting untuk komunikasi. Dulunya handphone hanya bisa digunakan untuk telepon maupun SMS namun lambat laun fungsinya menjadi lebih kompleks dari semua itu. Handphone bisa juga digunakan untuk kebutuhan bermain game dan juga editing dalam memudahkan pekerjaan pengguna.",
+      img: "https://info.padiumkm.id/_next/image?url=https%3A%2F%2Fsmb-padiumkm-images-public-prod.oss-ap-southeast-5.aliyuncs.com%2Finfo-padi%2Fuploads%2F2024%2F08%2F83e77bf5-7ef5-4f38-a4db-a92797439529.jpg&w=2048&q=75",
+    },
+  ],
+};
