@@ -37,3 +37,31 @@ body,
   border-radius: 2px;
   box-shadow: 0 2px 0 #009ea9;
 }
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.navbar {
+  background-color: #ffffff;
+}
+
+.navbar.dark {
+  background-color: #1e1e1e;
+}
+
+button {
+  background-color: #009ea9;
+  color: #ffffff;
+}
+
+button.dark {
+  background-color: #005f6a;
+  color: #ffffff;
+}

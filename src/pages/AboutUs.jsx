@@ -1,23 +1,46 @@
 import React from "react";
 import Layout from "../components/layout/Layout";
 import { about } from "../data/item";
+import { useDarkMode } from "../contexts/DarkModeContext";
 
 const AboutUs = () => {
+  const { isDarkMode } = useDarkMode();
+
   return (
     <>
       <Layout>
-        <div className="relative flex items-start w-full h-full md:h-[380px] lg:h-[472px] xl:h-[472px] overflow-hidden bg-[url('/about.png')] bg-cover bg-center bg-no-repeat" />
-        <div className="flex flex-row flex-wrap justify-between w-full overflow-hidden text-[#444B55]">
+        <div
+          className={`relative flex items-start w-full h-full md:h-[380px] lg:h-[472px] xl:h-[472px] overflow-hidden bg-[url('/about.png')] bg-cover bg-center bg-no-repeat bg-${isDarkMode ? "gray-900" : "[url('/about.png')]"}`}
+        />
+        <div
+          className={`flex flex-row flex-wrap justify-between w-full overflow-hidden ${isDarkMode ? "text-gray-300" : "text-[#444B55]"}`}
+        >
           <section className="flex justify-between flex-col lg:flex-row xl:flex-row items-center w-full py-10 px-10 md:px-0 lg:px-0 xl:px-0">
-            <div className="w-full lg:w-1/2 xl:w-1/2 md:py-10 lg:py-10 xl:py-10 md:pl-32 lg:pl-32 xl:pl-32">
+            <div
+              className={`w-full lg:w-1/2 xl:w-1/2 md:py-10 lg:py-10 xl:py-10 md:pl-32 lg:pl-32 xl:pl-32 ${isDarkMode ? "text-gray-300" : ""}`}
+            >
               <div>
-                <h1 className="text-[34px] font-bold">{about.visi.title}</h1>
-                <p className="pl-6 text-[16px]">{about.visi.description}</p>
+                <h1
+                  className={`text-[34px] font-bold ${isDarkMode ? "text-gray-100" : ""}`}
+                >
+                  {about.visi.title}
+                </h1>
+                <p
+                  className={`pl-6 text-[16px] ${isDarkMode ? "text-gray-400" : ""}`}
+                >
+                  {about.visi.description}
+                </p>
               </div>
 
               <div className="mt-7">
-                <h1 className="text-[34px] font-bold">{about.misi.title}</h1>
-                <ul className="list-disc text-justify pl-6 text-[16px]">
+                <h1
+                  className={`text-[34px] font-bold ${isDarkMode ? "text-gray-100" : ""}`}
+                >
+                  {about.misi.title}
+                </h1>
+                <ul
+                  className={`list-disc text-justify pl-6 text-[16px] ${isDarkMode ? "text-gray-400" : ""}`}
+                >
                   {about.misi.description.map((description, index) => (
                     <li key={index} className="py-2">
                       {description}
@@ -32,6 +55,7 @@ const AboutUs = () => {
                 <img
                   src="https://info.padiumkm.id/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fvision-section.0fa77441.png&w=1080&q=75"
                   className="w-2/3"
+                  alt="Vision"
                 />
               </div>
             </div>

@@ -2,19 +2,30 @@ import React from "react";
 import Layout from "../components/layout/Layout";
 import { media } from "../data/item";
 import Card from "../components/card/CardMedia";
+import { useDarkMode } from "../contexts/DarkModeContext";
 
 const Media = () => {
+  const { isDarkMode } = useDarkMode();
+
   return (
     <>
       <Layout>
-        <div className="flex md:container md:mx-auto justify-between lg:px-40">
-          <div className="m-0 p-4 xl:p-0 xl:pr-8 w-full mb-10">
-            <div className='class="py-4"'>
+        <div
+          className={`flex md:container md:mx-auto justify-between lg:px-40 ${isDarkMode ? "bg-gray-900" : "bg-white"}`}
+        >
+          <div
+            className={`m-0 p-4 xl:p-0 xl:pr-8 w-full mb-10 ${isDarkMode ? "text-gray-300" : "text-gray-900"}`}
+          >
+            <div className={`py-4 `}>
               <div className="flex-grow flex-col px-5 md:py-20 py-6 space-y-8">
                 <section className="flex flex-col mb-4">
                   <section className="w-fit">
-                    <div className="text-center flex justify-center rounded-full border border-b-4 border-[#4DB3C5] w-[80px] mb-2 mx-auto" />
-                    <h2 className="w-fit text-3xl font-bold text-[#0E0F11]">
+                    <div
+                      className={`text-center flex justify-center rounded-full border border-b-4 ${isDarkMode ? "border-[#4DB3C5]" : "border-[#4DB3C5]"} w-[80px] mb-2 mx-auto`}
+                    />
+                    <h2
+                      className={`w-fit text-3xl font-bold ${isDarkMode ? "text-gray-100" : "text-[#0E0F11]"}`}
+                    >
                       {media.title}
                     </h2>
                   </section>

@@ -2,16 +2,37 @@ import React from "react";
 import Layout from "../components/layout/Layout";
 import { contact, contactLinks, socialLinks } from "../data/item";
 import CardContact from "../components/card/CardContact";
+import { useDarkMode } from "../contexts/DarkModeContext";
+import {
+  Phone,
+  Instagram,
+  Facebook,
+  Twitter,
+  MailsIcon,
+  Youtube,
+} from "lucide-react";
 
 const Contact = () => {
+  const { isDarkMode } = useDarkMode();
+
+  const iconColor = isDarkMode ? "text-gray-300" : "text-gray-700";
+
   return (
     <>
       <Layout>
-        <div className="text-[#444B55] flex md:container md:mx-auto justify-between lg:px-40">
+        <div
+          className={`flex md:container md:mx-auto justify-between lg:px-40 ${isDarkMode ? "bg-gray-900 text-gray-300" : "text-[#444B55]"}`}
+        >
           <div className="w-screen lg:mt-12 xl:mt-12 mb-10 p-7 md:p-0 lg:p-0 xl:p-0">
             <div className="mb-5">
-              <div className="text-[48px] font-bold ">{contact.title}</div>
-              <p className="text-[16px] leading-6">
+              <div
+                className={`text-[48px] font-bold ${isDarkMode ? "text-gray-200" : ""}`}
+              >
+                {contact.title}
+              </div>
+              <p
+                className={`text-[16px] leading-6 ${isDarkMode ? "text-gray-400" : ""}`}
+              >
                 {contact.desc1}
                 <br />
                 {contact.desc2}
@@ -20,58 +41,75 @@ const Contact = () => {
             <div className="flex flex-col justify-between items-center w-full gap-4">
               <div className="w-full flex flex-col lg:flex-row xl:flex-row gap-4">
                 <CardContact cardTitle={contact.subTitle}>
-                  <div className="py-4">
+                  <div className={`py-4 ${isDarkMode ? "text-gray-300" : ""}`}>
                     {contactLinks.map((contactLink, index) => (
-                      <div>
-                        <h2 className="text-lg font-bold">
+                      <div key={index}>
+                        <h2
+                          className={`text-lg font-bold ${isDarkMode ? "text-gray-200" : ""}`}
+                        >
                           {contactLink.name}
                         </h2>
                         <span className="flex items-center">
-                          <p className="pr-2">
-                            <img
-                              src={contactLink.img}
-                              alt={contactLink.name}
-                              className="w-6 h-6"
-                            />
+                          <p className={`pr-2 ${iconColor}`}>
+                            {contactLink.type === "email" ? (
+                              <MailsIcon className="w-6 h-6" />
+                            ) : (
+                              <Phone className="w-6 h-6" />
+                            )}
                           </p>
                           {contactLink.detail}
                         </span>
                       </div>
                     ))}
-                    <p className="text-lg font-bold mt-2">
+                    <p
+                      className={`text-lg font-bold mt-2 ${isDarkMode ? "text-gray-200" : ""}`}
+                    >
                       Senin - Jumat | 08:00 - 17:00 WIB
                     </p>
                   </div>
                 </CardContact>
                 <CardContact cardTitle={contact.subTitle2}>
-                  <h6 className="text-[16px] font-medium">
+                  <h6
+                    className={`text-[16px] font-medium ${isDarkMode ? "text-gray-300" : ""}`}
+                  >
                     PaDi UMKM Headquarters
                   </h6>
-                  <h6 className="text-[16px] font-medium">
+                  <h6
+                    className={`text-[16px] font-medium ${isDarkMode ? "text-gray-300" : ""}`}
+                  >
                     Gedung Telkom Direktorat Business and Technology
                   </h6>
-                  <p className="text-sm">
+                  <p className={`text-sm ${isDarkMode ? "text-gray-400" : ""}`}>
                     Jln. Prof. Dr. Soepomo No. 139, Jakarta Selatan, DKI
                     Jakarta, 12810 Indonesia
                   </p>
                   <div className="mt-5">
-                    <h3 className="text-[22px] font-bold">
+                    <h3
+                      className={`text-[22px] font-bold ${isDarkMode ? "text-gray-200" : ""}`}
+                    >
                       Ikuti Media Sosial Kami
                     </h3>
                     <div className="flex items-center space-x-2 mt-4 justify-center xl:justify-start">
                       {socialLinks.map((socialLink, index) => (
-                        <div className="cursor-pointer">
+                        <div className="cursor-pointer" key={index}>
                           <a
-                            key={index}
                             className="w-full h-full"
                             href={socialLink.url}
                             target="_blank"
+                            rel="noopener noreferrer"
                           >
-                            <img
-                              src={socialLink.img}
-                              alt={socialLink.name}
-                              className="w-8 h-8"
-                            />
+                            {socialLink.name === "Instagram" && (
+                              <Instagram className={`w-8 h-8 ${iconColor}`} />
+                            )}
+                            {socialLink.name === "Facebook" && (
+                              <Facebook className={`w-8 h-8 ${iconColor}`} />
+                            )}
+                            {socialLink.name === "Twitter" && (
+                              <Twitter className={`w-8 h-8 ${iconColor}`} />
+                            )}
+                            {socialLink.name === "Youtube" && (
+                              <Youtube className={`w-8 h-8 ${iconColor}`} />
+                            )}
                           </a>
                         </div>
                       ))}
@@ -89,7 +127,7 @@ const Contact = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="shadow rounded-lg w-full"
+                className={`shadow rounded-lg w-full ${isDarkMode ? "bg-gray-800" : ""}`}
                 title="Telkom Direktorat Digital Business"
               ></iframe>
             </div>
