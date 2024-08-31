@@ -4,6 +4,7 @@ import { PrivateRoute } from "./PrivateRoute";
 import Beranda from "../pages/Beranda";
 import Login from "../pages/Login";
 import AboutUs from "../pages/AboutUs";
+import Help from "../pages/Help";
 
 export default function Router() {
   const isAuthenticated = true;
@@ -33,6 +34,14 @@ export default function Router() {
           element={
             <PrivateRoute isAuthenticated={isAuthenticated}>
               <AboutUs />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/help"
+          element={
+            <PrivateRoute isAuthenticated={isAuthenticated}>
+              <Help />
             </PrivateRoute>
           }
         />

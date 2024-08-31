@@ -20,7 +20,7 @@ const Beranda = () => {
                   </p>
                 </div>
                 <div>
-                  <Button text="Selengkapnya" />
+                  <Button text="Selengkapnya" variant="primary" />
                 </div>
               </div>
 
