@@ -1,8 +1,10 @@
+import Router from "./router/Router";
+
 function App() {
   return (
-    <h1 className="text-3xl text-center text-green-500 font-bold underline">
-      Hello world!
-    </h1>
+    <>
+      <Router />
+    </>
   );
 }
 
