@@ -15,7 +15,7 @@ const NavBar = () => {
 
   return (
     <nav
-      className={`relative border-b ${isDarkMode ? "bg-gray-900 text-gray-300" : "bg-white text-gray-800"}`}
+      className={`sticky top-0 z-50 border-b ${isDarkMode ? "bg-gray-900 text-gray-300" : "bg-white text-gray-800"}`}
     >
       <div className="flex items-center justify-between lg:px-20 xl:px-40 px-10 py-3">
         <div className="max-h-[87px] xl:w-52 w-fit">
