@@ -7,6 +7,7 @@ import AboutUs from "../pages/AboutUs";
 import Help from "../pages/Help";
 import Media from "../pages/Media";
 import Contact from "../pages/Contact";
+import Shop from "../pages/Shop";
 
 export default function Router() {
   const isAuthenticated = localStorage.getItem("isLoggedIn") === "true";
@@ -60,6 +61,14 @@ export default function Router() {
           element={
             <PrivateRoute isAuthenticated={isAuthenticated}>
               <Contact />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/shop"
+          element={
+            <PrivateRoute isAuthenticated={isAuthenticated}>
+              <Shop />
             </PrivateRoute>
           }
         />

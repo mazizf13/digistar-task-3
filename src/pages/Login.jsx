@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { EyeOff, Eye } from "lucide-react";
 import { useDarkMode } from "../contexts/DarkModeContext";
 import Layout from "../components/layout/Layout";
@@ -8,6 +8,15 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    if (isLoggedIn === "true") {
+      localStorage.removeItem("isLoggedIn");
+      alert("Anda telah logout. Silakan login kembali.");
+      window.location.href = "/login";
+    }
+  }, []);
 
   const handleLogin = (e) => {
     e.preventDefault();

@@ -35,10 +35,11 @@ const Beranda = () => {
                 </div>
               </div>
 
-              <div className="flex justify-center items-center rounded-[15px] lg:rounded-[30px] xl:rounded-[30px] overflow-hidden w-full lg:w-[70%] xl:w-[70%] ">
+              <div className="flex justify-center items-center rounded-[15px] lg:rounded-[30px] xl:rounded-[30px] overflow-hidden w-full lg:w-[70%] xl:w-[70%] transition-all duration-300 transform hover:scale-105">
                 <img
                   src="https://info.padiumkm.id/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero.c32bfb9e.jpg&w=3840&q=75"
                   alt="Hero"
+                  className="w-full h-auto"
                 />
               </div>
             </div>

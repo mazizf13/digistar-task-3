@@ -74,9 +74,11 @@ const NavBar = () => {
               <Link to="/contact">Kontak</Link>
             </span>
           </li>
-          <div className="border-[1px] border-[#009EA9] rounded-lg px-3 py-2 text-[#009EA9] cursor-pointer">
-            <Link to="https://padiumkm.id">Belanja di PaDi UMKM</Link>
-          </div>
+          <li className="group cursor-pointer">
+            <div className="border-[1px] border-[#009EA9] rounded-lg px-3 py-2 text-[#009EA9] cursor-pointer">
+              <Link to="/shop">Belanja di PaDi UMKM</Link>
+            </div>
+          </li>
         </ul>
       </div>
 
@@ -121,7 +123,7 @@ const NavBar = () => {
             </span>
           </li>
           <div className="border-[1px] border-[#009EA9] rounded-lg px-3 py-2 text-[#009EA9] cursor-pointer">
-            <Link to="https://padiumkm.id">Belanja di PaDi UMKM</Link>
+            <Link to="/shop">Belanja di PaDi UMKM</Link>
           </div>
         </ul>
       </div>
