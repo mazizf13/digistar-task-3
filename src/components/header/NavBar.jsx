@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { useDarkMode } from "../../contexts/DarkModeContext";
 
@@ -8,10 +8,21 @@ const NavBar = () => {
   const location = useLocation();
   const { pathname } = location;
   const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const navigate = useNavigate();
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    alert("Anda telah logout. Silakan login kembali.");
+    window.location.reload();
+    navigate("/login");
+  };
+
+  const isAuthenticated = localStorage.getItem("isLoggedIn") === "true";
+  const isLoginPage = pathname === "/login";
 
   return (
     <nav
@@ -79,6 +90,15 @@ const NavBar = () => {
               <Link to="/shop">Belanja di PaDi UMKM</Link>
             </div>
           </li>
+          {isAuthenticated && !isLoginPage && (
+            <li className="group cursor-pointer">
+              <div className="border-[1px] border-[#009EA9] bg-[#009EA9] rounded-lg px-3 py-2 cursor-pointer">
+                <button onClick={handleLogout} className=" text-white">
+                  Logout
+                </button>
+              </div>
+            </li>
+          )}
         </ul>
       </div>
 
@@ -125,6 +145,15 @@ const NavBar = () => {
           <div className="border-[1px] border-[#009EA9] rounded-lg px-3 py-2 text-[#009EA9] cursor-pointer">
             <Link to="/shop">Belanja di PaDi UMKM</Link>
           </div>
+          {isAuthenticated && !isLoginPage && (
+            <li className="group cursor-pointer">
+              <div className="border-[1px] border-[#009EA9] bg-[#009EA9] rounded-lg px-3 py-2 cursor-pointer">
+                <button onClick={handleLogout} className=" text-white">
+                  Logout
+                </button>
+              </div>
+            </li>
+          )}
         </ul>
       </div>
 
