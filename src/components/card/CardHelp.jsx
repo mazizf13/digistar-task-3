@@ -29,7 +29,7 @@ const CardHelp = ({ cardTitle, cardImg, cardDescription }) => {
                 className={`p-1 text-[16px] font-medium cursor-pointer 
                   ${isDarkMode ? "text-gray-400 hover:text-white" : "text-[#686E76] hover:text-[#009EA9]"}`}
               >
-                <a href={detail.link} target="_blank" rel="noopener noreferrer">
+                <a href={detail.link} rel="noopener noreferrer">
                   {detail.text}
                 </a>
               </li>
