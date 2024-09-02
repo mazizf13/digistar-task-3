@@ -16,6 +16,7 @@ const NavBar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("dark-mode");
     alert("Anda telah logout. Silakan login kembali.");
     window.location.reload();
     navigate("/login");
