@@ -75,7 +75,7 @@ const Media = () => {
               <button
                 onClick={loadMore}
                 disabled={visibleArticles >= articles.length}
-                className="mt-6 bg-[#009EA9] text-white px-4 py-2 rounded disabled:opacity-50 w-full hover:bg-[#50bcc4]"
+                className="mt-6 bg-[#009EA9] hover:bg-[#50bcc4] text-white px-4 py-2 rounded disabled:opacity-50 w-full"
               >
                 Load More
               </button>
