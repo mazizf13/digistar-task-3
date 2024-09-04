@@ -146,7 +146,7 @@ const Contact = () => {
           </div>
           <div className="mt-10">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.042131415892!2d107.58926129229269!3d-6.873423436961501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e767e572539b%3A0xd9f0847b9cbb3fb8!2sTelkom%20Direktorat%20Digital%20Business!5e1!3m2!1sid!2sid!4v1724899614208!5m2!1sid!2sid"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4007.5726008594183!2d106.84497007503761!3d-6.229754993758344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3588d915d7d%3A0x2ee2b1db412977b0!2sPaDi%20UMKM%20Headquarters!5e1!3m2!1sen!2sid!4v1725413516103!5m2!1sen!2sid"
               width="600"
               height="450"
               style={{ border: 0 }}
@@ -156,7 +156,7 @@ const Contact = () => {
               className={`shadow rounded-lg w-full ${
                 isDarkMode ? "bg-gray-800" : ""
               }`}
-              title="Telkom Direktorat Digital Business"
+              title="PaDi UMKM Headquarters"
             ></iframe>
           </div>
         </div>

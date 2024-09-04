@@ -2,18 +2,24 @@ import React, { useState, useEffect } from "react";
 import { EyeOff, Eye } from "lucide-react";
 import { useDarkMode } from "../contexts/DarkModeContext";
 import Layout from "../components/layout/Layout";
+import Alert from "../components/Alert";
+import useAlert from "../hooks/useAlert";
 
 const Login = () => {
   const { isDarkMode } = useDarkMode();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [alert, setAlert] = useAlert();
 
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("isLoggedIn");
     if (isLoggedIn === "true") {
       localStorage.removeItem("isLoggedIn");
-      alert("Anda telah logout. Silakan login kembali.");
+      setAlert({
+        message: "Anda telah logout. Silakan login kembali.",
+        type: "info",
+      });
       window.location.href = "/login";
     }
   }, []);
@@ -24,7 +30,7 @@ const Login = () => {
       localStorage.setItem("isLoggedIn", "true");
       window.location.href = "/beranda";
     } else {
-      alert("Email atau kata sandi salah!");
+      setAlert({ message: "Email atau kata sandi salah!", type: "error" });
     }
   };
 
@@ -88,6 +94,9 @@ const Login = () => {
                   </div>
                 </div>
                 <div className="w-full">
+                  {alert.message && (
+                    <Alert message={alert.message} type={alert.type} />
+                  )}
                   <form onSubmit={handleLogin}>
                     <div className="w-full space-y-2 mb-4">
                       <label

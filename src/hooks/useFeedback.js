@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export const useFeedback = () => {
   const [feedbacks, setFeedbacks] = useState(() => {
@@ -11,19 +12,21 @@ export const useFeedback = () => {
   }, [feedbacks]);
 
   const addFeedback = (newFeedback) => {
-    setFeedbacks((prev) => [...prev, newFeedback]);
+    setFeedbacks((prev) => [...prev, { ...newFeedback, id: uuidv4() }]);
   };
 
-  const likeFeedback = (index) => {
+  const likeFeedback = (id) => {
     setFeedbacks((prev) =>
-      prev.map((feedback, i) =>
-        i === index ? { ...feedback, likes: feedback.likes + 1 } : feedback,
+      prev.map((feedback) =>
+        feedback.id === id
+          ? { ...feedback, likes: feedback.likes + 1 }
+          : feedback,
       ),
     );
   };
 
-  const deleteFeedback = (index) => {
-    setFeedbacks((prev) => prev.filter((_, i) => i !== index));
+  const deleteFeedback = (id) => {
+    setFeedbacks((prev) => prev.filter((feedback) => feedback.id !== id));
   };
 
   return {

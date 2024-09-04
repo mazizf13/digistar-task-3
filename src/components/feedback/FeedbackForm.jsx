@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useDarkMode } from "../../contexts/DarkModeContext";
+import useAlert from "../../hooks/useAlert";
 import Alert from "../Alert";
+import { useDarkMode } from "../../contexts/DarkModeContext";
 
 const FeedbackForm = ({ addFeedback, setFeedbacks }) => {
   const { isDarkMode } = useDarkMode();
   const [name, setName] = useState("");
   const [suggestion, setSuggestion] = useState("");
-  const [alertMessage, setAlertMessage] = useState("");
+  const [alert, setAlert] = useAlert();
 
   useEffect(() => {
     const storedFeedbacks = JSON.parse(localStorage.getItem("feedbacks"));
@@ -18,12 +19,18 @@ const FeedbackForm = ({ addFeedback, setFeedbacks }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!name || !suggestion) {
-      setAlertMessage("Nama dan Saran tidak boleh kosong!");
+      setAlert({
+        message: "Nama dan Saran tidak boleh kosong!",
+        type: "error",
+      });
     } else {
       addFeedback({ name, suggestion, likes: 0 });
       setName("");
       setSuggestion("");
-      setAlertMessage("");
+      setAlert({
+        message: "Kritik atau Saran berhasil dikirim!",
+        type: "success",
+      });
     }
   };
 
@@ -45,7 +52,7 @@ const FeedbackForm = ({ addFeedback, setFeedbacks }) => {
         onSubmit={handleSubmit}
         className={`p-4 mb-4 rounded shadow ${isDarkMode ? "bg-gray-800" : "bg-gray-50"}`}
       >
-        {alertMessage && <Alert message={alertMessage} />}
+        {alert.message && <Alert message={alert.message} type={alert.type} />}
 
         <div className="mb-4">
           <label
@@ -60,7 +67,7 @@ const FeedbackForm = ({ addFeedback, setFeedbacks }) => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             className={`w-full p-2 border rounded ${inputClass}`}
-            placeholder="Masukkan nama"
+            placeholder="Masukkan nama..."
           />
         </div>
         <div className="mb-4">
@@ -68,14 +75,14 @@ const FeedbackForm = ({ addFeedback, setFeedbacks }) => {
             className={`block mb-2 ${isDarkMode ? "text-gray-300" : "text-gray-700"}`}
             htmlFor="suggestion"
           >
-            Saran
+            Kritik Atau Saran
           </label>
           <textarea
             id="suggestion"
             value={suggestion}
             onChange={(e) => setSuggestion(e.target.value)}
             className={`w-full p-2 border rounded ${inputClass}`}
-            placeholder="Masukkan saran"
+            placeholder="Masukkan kritik atau saran..."
           />
         </div>
         <button
